@@ -1,0 +1,39 @@
+.cal-btn{
+    width: 60px;
+    height: 60px;
+}
+.cal-btn:hover{
+    border: 1px solid black;
+    background-color: gray;
+    color: white;
+}
+.cal-display{
+    background-color: gray;
+    color: white;
+    height: 100px;
+    width: 310px;
+    border-radius: 5px;
+}
+.inputstr{
+    margin-top: 5px;
+    height: 20px;
+    display: block;
+    font-size: 20px;
+}
+.expstr{
+    margin-top: 5px;
+    height: 20px;
+    display: block;
+    font-size: 20px;
+}
+.valstr{
+    margin-top: 5px;
+    height: 20px;
+    display: block;
+    font-size: 20px;
+}
+h1{
+    text-align: center;
+    padding: 10px;
+    color: #52796f;
+}

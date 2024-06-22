@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1><u>Bootstrap & HTML Calculator</u></h1>
+    <div class="container p-5">
+        <audio src="mixkit-hard-click-1118.wav" id="clicksound"></audio>
+        <div class="d-flex justify-content-center">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="d-flex justify-content-center align-item-center p-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 cal-display">
+                                <div id="numdiv" class="inputstr">0</div>
+                                <div id="expdiv" class="expstr"></div>
+                                <div id="valdiv" class="valstr"></div>
+                                <input type="hidden" id="savedexp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-item-center p-3">
+                       
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="NumLock"><small>Num Lock</small></button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="Delete">CE</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="Delete">Del</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="/">/</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-item-center p-3">
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="7">7</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="8">8</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="9">9</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="*">X</button>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="d-flex justify-content-center align-item-center p-3">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-light cal-btn" data-event_key="4">4</button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-light cal-btn" data-event_key="5">5</button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-light cal-btn" data-event_key="6">6</button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-light cal-btn" data-event_key="-">-</button>
+                        </div>
+                    </div>
+                   </div>
+                    <div class="d-flex justify-content-center align-item-center p-3">
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="1">1</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="2">2</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="3">3</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="+">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-item-center p-3">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <button type="button" class="btn btn-light cal-btn" style="width: 120px;" data-event_key="0">0</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key=".">.</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="=">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="jquery.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        alert("Hello User")
+        let name=prompt("please enter your name")
+        let email=prompt("please enter your email id")
+        alert(`Wlecome ${name} . Now you can use calculator`)
+        $(document).on('keypress',function(e){
+            $('button[data-event_key="'+e.key+'"]').addClass('active')
+            if(e.keyCode>=48 && e.keyCode<=57 || (e.keyCode>=96 && e.keyCode<=105)){
+                appendnum(e.key)
+            }
+            else{
+                if(e.key=='+' || e.key=='-' || e.key=='*' || e.key=='/'){
+                    generateexp(e.key)
+                }
+                else if(e.key=='='){
+                    evaluateexp()
+                }
+                else if(e.key=='Delete'){
+                    clearcal()
+                }
+            }
+            console.log(e.key)
+        })
+        $(document).on('keyup',function(e){
+            $('button[data-event_key="'+e.key+'"]').removeClass('active')
+            console.log(e.key)
+        })
+        $('.cal-btn').on('click',function(e){
+            $('#clicksound')[0].play();
+            var key=$(this).data('event_key')
+            if(key !='+' && key !='-' && key !='=' && key !='.' && key !='/' && key !='*' && key !='*' && key !='Delete' && key !='NumLock'){
+                appendnum(key)
+            }
+            else{
+                if(key=='+' || key=='-' || key=='*' || key=='/'){
+                    generateexp(key)
+                }
+                else if(key=='='){
+                    evaluateexp() 
+                }
+                else if(key=='Delete'){
+                    clearcal()
+                }
+            }
+            console.log(key)
+        })
+
+        function appendnum(number){
+            var existingnum=$("#numdiv").html()
+            var currstr=number
+            var outputstr=''
+            if(existingnum!='' && existingnum!=undefined && existingnum !=null){
+                if(existingnum=='0'){
+                    outputstr=number
+                }
+                else{
+                outputstr=existingnum+=currstr
+                }
+            }else{
+                outputstr=currstr
+            }
+            $("#numdiv").html(outputstr)
+        }
+        function generateexp(operator){
+            var existingnum=$("#numdiv").html()
+            var curroperator=operator
+            var expression=''
+            var savedexpression =$("#savedexp").val()
+            if(savedexpression=='' && savedexpression==undefined && savedexpression==null){
+                expression=parseInt(existingnum)+operator
+            }
+            else{
+                expression=savedexpression + existingnum + operator
+            }
+            $("#numdiv").html("")
+            $("#savedexp").val(expression)
+            $("#expdiv").html(expression)
+        }
+        function evaluateexp(){
+            var result=''
+            var exp=  $("#savedexp").val()
+            var existingnum=$("#numdiv").html()
+            if(existingnum!='' || existingnum!=null || existingnum!=undefined){
+                exp=exp+parseInt(existingnum)
+                $("#expdiv").html(exp)
+            }
+            result=eval(exp)
+            $("#savedexp").val('')
+            $('#valdiv').html(result)
+            $("#numdiv").html(result)
+        }
+
+        function clearcal(){
+            $("#savedexp").val('')
+            $('#valdiv').html('')
+            $("#numdiv").html('')
+            $("#expdiv").html('')
+        }
+    </script>
+</body>
+</html>
