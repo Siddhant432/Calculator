@@ -1,1 +1,1 @@
-# Calculator
+https://user-friendlymycalculator.netlify.app/
